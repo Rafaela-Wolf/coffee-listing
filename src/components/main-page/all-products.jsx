@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import starImage from '../../assets/images/Star_fill.svg';
 import emptyStar from '../../assets/images/Star.svg';
-import { Buttons, ButtonsContent, CoffeeContent, CoffeeListing, Main, PageText, PageTitle, TextContent } from './style';
+import { ButtonAllProducts, ButtonAvailableNow, ButtonsContent, CoffeeContent, CoffeeItem, CoffeeListing, CoffeeName, CoffeePrice, CoffeeVotes, Image, Main, NameAndPrice, NoRatingText, PageText, PageTitle, PopularItem, Ratings, RatingText, SoldOut, StarImg, TextContent } from '../style';
 
 async function fetchCoffeeList() {
     const response = await fetch(`https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json`);
     return await response.json();
 }
 
-class CoffeeList extends Component {
+class AllProducts extends Component {
     constructor() {
         super();
         this.state = {
@@ -35,39 +35,39 @@ class CoffeeList extends Component {
                         <PageTitle>Our Collection</PageTitle>
                         <PageText>Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins, expertly roasted in small batches and shipped fresh weekly.</PageText>
                         <ButtonsContent>
-                            <Buttons>All Products</Buttons>
-                            <Buttons>Available Now</Buttons>
+                            <ButtonAllProducts>All Products</ButtonAllProducts>
+                            <ButtonAvailableNow>Available Now</ButtonAvailableNow>
                         </ButtonsContent>
                     </TextContent>
 
                     <CoffeeContent>
                         <CoffeeListing>
                             {list.map(coffee => (
-                                <li key={coffee.id}>
-                                    <p>{coffee.popular ? 'Popular' : ''}</p>
-                                    <img src={coffee.image} alt={coffee.name} />
-                                    <div>
-                                        <p>{coffee.name} </p>
-                                        <p>{coffee.price}</p>
-                                    </div>
+                                <CoffeeItem key={coffee.id}>
+                                    {coffee.popular && <PopularItem>Popular</PopularItem>}
+                                    <Image src={coffee.image} alt={coffee.name} />
+                                    <NameAndPrice>
+                                        <CoffeeName>{coffee.name} </CoffeeName>
+                                        <CoffeePrice>{coffee.price}</CoffeePrice>
+                                    </NameAndPrice>
 
-                                    <div>
-                                        <p>
+                                    <Ratings>
+                                        <RatingText>
                                             {coffee.rating
                                                 ? <>
-                                                    <img src={starImage} alt="Star" />
+                                                    <StarImg src={starImage} alt="Star" />
                                                     {coffee.rating}
                                                 </>
                                                 : <>
-                                                    <img src={emptyStar} alt="Empty Star" />
-                                                    No ratings
+                                                    <StarImg src={emptyStar} alt="Empty Star" />
+                                                    <NoRatingText>No ratings</NoRatingText>
                                                 </>
                                             }
-                                        </p>
-                                        {coffee.votes > 0 && <p>{coffee.votes}</p>}
-                                        <p>{coffee.available ? '' : 'Sold out'}</p>
-                                    </div>
-                                </li>
+                                        </RatingText>
+                                        {coffee.votes > 0 && <CoffeeVotes>({coffee.votes} votes)</CoffeeVotes>}
+                                        <SoldOut>{coffee.available ? '' : 'Sold out'}</SoldOut>
+                                    </Ratings>
+                                </CoffeeItem>
                             ))}
                         </CoffeeListing>
                     </CoffeeContent>
@@ -77,4 +77,4 @@ class CoffeeList extends Component {
     }
 }
 
-export default CoffeeList;
+export default AllProducts;
