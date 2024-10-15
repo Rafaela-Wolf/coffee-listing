@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import bgImgTextContent from '../assets/images/vector.svg';
+import { Link } from 'react-router-dom';
+
+// INTRODUCTION TO THE COMPANY
 
 export const Main = styled.main`
     background-color: #1B1D1F;
@@ -12,6 +15,7 @@ export const Main = styled.main`
     align-items: center;
     margin: 20px auto;
     border-radius: 8px;
+    position: relative;
 `
 
 export const TextContent = styled.div`
@@ -33,6 +37,22 @@ export const PageTitle = styled.h1`
     padding: 30px 0 8px 0;
     text-align: center;
     cursor: default;
+
+    @media(max-width: 630px) {
+        font-size: 24px;
+    }
+
+    @media(max-width: 412px) {
+        font-size: 18px;
+    }
+
+    @media(max-width: 360px) {
+        font-size: 14px;
+    }
+
+    @media(max-width: 293px) {
+       padding-right: 10px;
+    }
 `
 
 export const PageText = styled.p`
@@ -43,44 +63,55 @@ export const PageText = styled.p`
     text-align: center;
     line-height: 1.5;
     cursor: default;
+
+    @media(max-width: 630px) {
+        font-size: 14px;
+    }
+
+    @media(max-width: 360px) {
+        font-size: 12px;
+    }
 `
 
-export const ButtonsContent = styled.div`
-    display: flex;
-    gap: 15px;
-`
-
-export const ButtonAllProducts = styled.button`
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #FEF7EE;
-    font-size: 14px;
-    font-weight: 600;
+export const AvailableLink = styled(Link)`
+    text-decoration: none;
     background-color: #6F757C;
-    border: none;
-    transition: background-color 0.3s ease-in-out;
-
-    &:hover {
-        background-color: #6F757C;
-    }
-`
-
-export const ButtonAvailableNow = styled.button`
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
     color: #FEF7EE;
-    font-size: 14px;
-    font-weight: 600;
-    background-color: #1B1D1F;
+    font-size: 12px;
+    font-weight: 700;
     border: none;
-    transition: background-color 0.3s ease-in-out;
+    letter-spacing: 1.2px;
+    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 20px;
+
+    .icon {
+        display: none;
+    }
 
     &:hover {
-        background-color: #6F757C;
+        transform: scale(1.05);
+        background-color: #F6C768;
+        color: #111315;
+    }
+
+    @media(max-width: 842px) {
+        .text {
+            display: none; 
+        }
+        .icon {
+            display: inline-block;
+            padding: 0;
+        }
     }
 `
+
+// COFFE LIST
 
 export const CoffeeContent = styled.div`
     display: flex;
@@ -189,4 +220,39 @@ export const SoldOut = styled.p`
     display: flex;
     align-items: center;
     margin-left: auto;
+`
+
+export const BackLink = styled(Link)`
+    text-decoration: none;
+    background-color:  #F6C768;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #111315;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    letter-spacing: 1.2px;
+    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 20px;
+
+    &:hover {
+        transform: scale(1.05);
+        background-color: #6F757C;
+        color: #FEF7EE;
+    }
+`
+
+export const CoffeeItemAN = styled.li`
+    padding: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 `

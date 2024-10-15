@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import bgImgBody from './assets/images/bg-cafe.jpg';
-// import AppRoutes from './routes/routes';
-import AllProducts from './components/main-page/all-products';
-// import AvailableNow from './components/available-now/available-now';
+import AppRoutes from './routes/routes';
 
 function App() {
-  const [activePage, setActivePage] = useState('all');
+
 
   return (
     <>
       <GlobalStyles />
-      <AllProducts />
+      <AppRoutes/>
     </>
 
   )

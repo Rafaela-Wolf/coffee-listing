@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ButtonAllProducts, ButtonAvailableNow, ButtonsContent, CoffeeContent, CoffeeItem, CoffeeListing, CoffeeName, CoffeePrice, Image, Main, NameAndPrice, PageText, PageTitle, PopularItem, TextContent } from '../../components/style';
+import { Component } from 'react';
+import { BackLink, CoffeeContent, CoffeeItemAN, CoffeeListing, CoffeeName, CoffeePrice, Image, Main, NameAndPrice, PopularItem } from '../../components/style';
 
 async function fetchCoffeeList() {
     const response = await fetch(`https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json`);
@@ -30,26 +30,18 @@ class AvailableNow extends Component {
         return (
             <>
                 <Main>
-                    <TextContent>
-                        <PageTitle>Our Collection</PageTitle>
-                        <PageText>Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins, expertly roasted in small batches and shipped fresh weekly.</PageText>
-                        <ButtonsContent>
-                            <ButtonAllProducts>All Products</ButtonAllProducts>
-                            <ButtonAvailableNow>Available Now</ButtonAvailableNow>
-                        </ButtonsContent>
-                    </TextContent>
-
+                    <BackLink to="/">All products</BackLink>
                     <CoffeeContent>
                         <CoffeeListing>
                             {list.map(coffee => (
-                                <CoffeeItem key={coffee.id}>
+                                <CoffeeItemAN key={coffee.id}>
                                     {coffee.popular && <PopularItem>Popular</PopularItem>}
                                     <Image src={coffee.image} alt={coffee.name} />
                                     <NameAndPrice>
                                         <CoffeeName>{coffee.name} </CoffeeName>
                                         <CoffeePrice>{coffee.price}</CoffeePrice>
                                     </NameAndPrice>
-                                </CoffeeItem>
+                                </CoffeeItemAN>
                             ))}
                         </CoffeeListing>
                     </CoffeeContent>

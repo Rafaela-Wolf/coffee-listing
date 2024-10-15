@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import starImage from '../../assets/images/Star_fill.svg';
 import emptyStar from '../../assets/images/Star.svg';
-import { ButtonAllProducts, ButtonAvailableNow, ButtonsContent, CoffeeContent, CoffeeItem, CoffeeListing, CoffeeName, CoffeePrice, CoffeeVotes, Image, Main, NameAndPrice, NoRatingText, PageText, PageTitle, PopularItem, Ratings, RatingText, SoldOut, StarImg, TextContent } from '../style';
+import { AvailableLink, CoffeeContent, CoffeeItem, CoffeeListing, CoffeeName, CoffeePrice, CoffeeVotes, Image, Main, NameAndPrice, NoRatingText, PageText, PageTitle, PopularItem, Ratings, RatingText, SoldOut, StarImg, TextContent } from '../style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 async function fetchCoffeeList() {
     const response = await fetch(`https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json`);
@@ -30,14 +32,17 @@ class AllProducts extends Component {
 
         return (
             <>
+
                 <Main>
                     <TextContent>
+                        <AvailableLink to="/available">
+                            <span className="text">Available now</span>
+                            <FontAwesomeIcon className="icon" icon={faCoffee} />
+                        </AvailableLink>
+                        
+
                         <PageTitle>Our Collection</PageTitle>
                         <PageText>Introducing our Coffee Collection, a selection of unique coffees from different roast types and origins, expertly roasted in small batches and shipped fresh weekly.</PageText>
-                        <ButtonsContent>
-                            <ButtonAllProducts>All Products</ButtonAllProducts>
-                            <ButtonAvailableNow>Available Now</ButtonAvailableNow>
-                        </ButtonsContent>
                     </TextContent>
 
                     <CoffeeContent>
