@@ -56,22 +56,6 @@ Siga os passos abaixo para instalar e executar o projeto:
 
 5. Acesse a aplicação em seu navegador.
 
-## Estrutura do Projeto
-
-coffee-listing/
-│
-├── public/               # Arquivos estáticos
-├── src/                  # Código-fonte da aplicação
-│   ├── components/       # Componentes React
-│   ├── pages/            # Páginas da aplicação
-│   ├── styles/           # Estilos CSS
-│   └── App.jsx           # Componente principal
-│
-├── .gitignore            # Arquivos a serem ignorados pelo Git
-├── package.json          # Dependências e scripts do projeto
-└── vite.config.js        # Configuração do Vite
-
-
 ### Notas:
 
 - **Personalização**: Ajuste as informações de contato conforme necessário.
