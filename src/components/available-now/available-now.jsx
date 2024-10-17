@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { BackLink, CoffeeContent, CoffeeItemAN, CoffeeListing, CoffeeName, CoffeePrice, Image, Main, NameAndPrice, PopularItem } from '../../components/style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 async function fetchCoffeeList() {
     const response = await fetch(`https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json`);
@@ -30,7 +32,9 @@ class AvailableNow extends Component {
         return (
             <>
                 <Main>
-                    <BackLink to="/">All products</BackLink>
+                    <BackLink to="/">
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                    </BackLink>
                     <CoffeeContent>
                         <CoffeeListing>
                             {list.map(coffee => (

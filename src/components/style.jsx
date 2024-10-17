@@ -157,6 +157,10 @@ export const PopularItem = styled.p`
     top: 10px;
     left: 10px;
     margin: 20px;
+
+    @media(max-width: 395px) {
+        padding: 4px 8px;
+    }
 `
 
 export const NameAndPrice = styled.div`
@@ -170,6 +174,14 @@ export const CoffeeName = styled.p`
     color: #FEF7EE;
     font-size: 16px;
     font-weight: 600;
+
+    @media(max-width: 425px) {
+        font-size: 12px;
+    }
+
+    @media(max-width: 395px) {
+        font-size: 10px;
+    }
 `
 
 export const CoffeePrice = styled.p`
@@ -179,6 +191,15 @@ export const CoffeePrice = styled.p`
     background-color: #BEE3CC;
     padding: 3px 6px;
     border-radius: 5px;
+
+    @media(max-width: 395px) {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+
+    @media(max-width: 350px) {
+        font-size: 8px;
+    }
 `
 
 export const Ratings = styled.div`
@@ -193,15 +214,28 @@ export const RatingText = styled.p`
     align-items: center;
     justify-content: flex-start;
     gap: 5px;
+
+    @media(max-width: 395px) {
+        font-size: 12px;
+    }
 `
 
 export const NoRatingText = styled.p`
     color: #6F757C;
+
+    @media(max-width: 395px) {
+        font-size: 12px;
+    }
 `
 
 export const StarImg = styled.img`
     width: 22px;
     height: 22px;
+
+    @media(max-width: 395px) {
+        width: 18px;
+        height: 18px;
+    }
 `
 
 export const CoffeeVotes = styled.p`
@@ -211,38 +245,99 @@ export const CoffeeVotes = styled.p`
     display: flex;
     align-items: center;
     padding-left: 6px;
+
+    @media(max-width: 425px) {
+        font-size: 10px;
+    }
 `
 
 export const SoldOut = styled.p`
-    color: #ED735D;
-    font-size: 14px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+    .sold-out-text {
+        color: #ED735D;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        padding-left: 72px;
+    }
+    
+    .ban-icon {
+        display: none;
+    }
+
+    @media(max-width: 425px) {
+        .sold-out-text{
+            padding-left: 25px;
+            font-size: 12px;
+        }
+    }
+
+    @media(max-width: 409px) {
+        .sold-out-text{
+            padding-left: 15px;
+        }
+    }
+
+    @media(max-width: 395px) {
+        .sold-out-text{
+            padding-left: 8px;
+        }
+    }
+
+    @media(max-width: 360px) {
+        .sold-out-text{
+            display: none;
+        }
+        
+        .ban-icon {
+            display: inline-flex;
+            color: #ED735D;
+            font-size: 10px;
+            font-weight: 800;
+            align-items: center;
+            padding-left: 25px;
+        }
+    }
+
+    @media(max-width: 339px) {
+        .ban-icon {
+            padding-left: 15px;
+        }
+    }
+
+    @media(max-width: 322px) {
+        .ban-icon {
+            padding-left: 10px;
+        }
+    }
+
+    @media(max-width: 310px) {
+        .ban-icon {
+            padding-left: 5px;
+        }
+    }
+
+    @media(max-width: 303px) {
+        .ban-icon {
+            padding-left: 2px;
+        }
+    }
 `
 
 export const BackLink = styled(Link)`
     text-decoration: none;
-    background-color:  #F6C768;
-    padding: 8px;
-    border-radius: 5px;
     cursor: pointer;
-    color: #111315;
-    font-size: 12px;
+    color: #FEF7EE;
+    font-size: 20px;
     font-weight: 700;
-    border: none;
-    letter-spacing: 1.2px;
-    transition: transform 0.5s ease-in-out;
     position: absolute;
     top: 10px;
     left: 10px;
-    margin: 20px;
+    margin: 10px;
 
-    &:hover {
-        transform: scale(1.05);
-        background-color: #6F757C;
-        color: #FEF7EE;
+    @media(max-width: 293px) {
+        font-size: 16px;
+        margin: 5px;
     }
 `
 
